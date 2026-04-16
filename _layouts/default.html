@@ -20,16 +20,18 @@
   <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ '/' | relative_url }}" />
 
   <!-- Open Graph / Social Media -->
+  {% assign og_image = page.image | default: '/assets/images/ecliptica banner.png' %}
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
   <meta property="og:title" content="{{ t.seo_title }}">
   <meta property="og:description" content="{{ t.seo_description }}">
-  <meta property="og:image" content="{{ site.url }}{{ '/assets/images/ecliptica banner.png' | relative_url }}">
+  <meta property="og:image" content="{{ site.url }}{{ og_image | replace: ' ', '%20' | relative_url }}">
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ t.seo_title }}">
   <meta name="twitter:description" content="{{ t.seo_description }}">
-  <meta name="twitter:image" content="{{ site.url }}{{ '/assets/images/ecliptica banner.png' | relative_url }}">
+  <meta name="twitter:image" content="{{ site.url }}{{ og_image | replace: ' ', '%20' | relative_url }}">
+
 
 
   {% include game_schema.html %}
@@ -71,6 +73,7 @@
 
       <a href="#features">{{ t.nav_features }}</a>
       <a href="#visuals">{{ t.nav_visuals }}</a>
+      <a href="#faq">{{ t.nav_faq }}</a>
       <a href="https://store.steampowered.com/app/3723390/Ecliptica/" class="btn btn-nav-wishlist"
         style="border-radius: 12px;">{{ t.nav_wishlist_btn }}</a>
     </nav>

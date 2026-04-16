@@ -6,11 +6,11 @@
   "description": "{{ t.seo_description | escape }}",
   "genre": ["Survival", "Simulator", "Open World", "Indie", "Colony Management", "Logistic Simulation"],
   "url": "{{ site.url }}{{ page.url }}",
-  "image": "{{ site.url }}{{ '/assets/images/ecliptica capsula vertical.png' | relative_url }}",
-  "operatingSystem": "Windows",
+  "image": "{{ site.url }}{{ '/assets/images/ecliptica capsula vertical.png' | replace: ' ', '%20' | relative_url }}",
+  "operatingSystem": "Windows, Linux",
   "applicationCategory": "Game",
-  "gamePlatform": "PC",
-  "keywords": "new survival game 2026, colony simulator, open world, factorio like, rimworld like, indie game",
+  "gamePlatform": ["PC", "Steam Deck", "Linux"],
+  "keywords": "new survival game 2026, colony simulator, open world, factorio like, rimworld like, indie game, steam deck survival, x4 foundations economy",
   "author": {
     "@type": "Organization",
     "name": "QuasarApp Core"

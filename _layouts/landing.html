@@ -13,7 +13,7 @@ layout: default
 <section class="section-card hero-layout">
   <div class="about-content">
     <h2 id="about"><i class="fas fa-seedling"></i> {{ t.mission_title }}</h2>
-    <p class="ai-lead" style="font-weight: 600; color: var(--secondary); margin-bottom: 20px;">{{ t.ai_genre }}</p>
+
     <p>{{ t.mission_desc_1 }}</p>
     <p>{{ t.mission_desc_2 }}</p>
     <p style="margin-top: 1rem;">{{ t.mission_desc_3 }}</p>
@@ -33,23 +33,8 @@ layout: default
   </div>
 </section>
 
-<section id="faq" class="section-card" style="background: rgba(0,0,0,0.4);">
-  <h2><i class="fas fa-database"></i> {{ t.faq_title }}</h2>
-  <div class="faq-grid" style="display: grid; gap: 20px; margin-top: 20px;">
-    <div class="faq-item" style="border: 1px solid var(--glass-border); padding: 20px; border-radius: 15px; background: rgba(255,255,255,0.02);">
-      <h3 style="font-size: 1rem; color: var(--secondary); margin-bottom: 10px;">{{ t.faq_q1 }}</h3>
-      <p style="font-size: 0.95rem; opacity: 0.8;">{{ t.faq_a1 }}</p>
-    </div>
-    <div class="faq-item" style="border: 1px solid var(--glass-border); padding: 20px; border-radius: 15px; background: rgba(255,255,255,0.02);">
-      <h3 style="font-size: 1rem; color: var(--secondary); margin-bottom: 10px;">{{ t.faq_q2 }}</h3>
-      <p style="font-size: 0.95rem; opacity: 0.8;">{{ t.faq_a2 }}</p>
-    </div>
-    <div class="faq-item" style="border: 1px solid var(--glass-border); padding: 20px; border-radius: 15px; background: rgba(255,255,255,0.02);">
-      <h3 style="font-size: 1rem; color: var(--secondary); margin-bottom: 10px;">{{ t.faq_q3 }}</h3>
-      <p style="font-size: 0.95rem; opacity: 0.8;">{{ t.faq_a3 }}</p>
-    </div>
-  </div>
-</section>
+
+
 
 
 <section id="features" class="section-card">
@@ -91,6 +76,27 @@ layout: default
     <img src="{{ '/assets/sceenshots/Screenshot From 2026-04-14 19-07-20.png' | relative_url }}" alt="Ecliptica Gameplay - Open World Topography and Survival">
     <img src="{{ '/assets/sceenshots/Screenshot From 2026-04-14 19-08-26.png' | relative_url }}" alt="Ecliptica Gameplay - Dynamic Lighting and Atmospheric Effects">
 
+  </div>
+</section>
+
+<section id="faq" class="section-card" style="background: rgba(0,0,0,0.4);">
+  <h2><i class="fas fa-database"></i> {{ t.faq_title }}</h2>
+  <div class="faq-accordion" style="margin-top: 25px;">
+    {% for i in (1..14) %}
+      {% capture q_key %}faq_q{{ i }}{% endcapture %}
+      {% capture a_key %}faq_a{{ i }}{% endcapture %}
+      {% if t[q_key] %}
+        <details class="faq-item" style="border-bottom: 1px solid var(--glass-border); padding: 10px 0;">
+          <summary style="font-size: 1.05rem; color: var(--secondary); cursor: pointer; padding: 10px; list-style: none; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-header);">
+            <span>{{ t[q_key] }}</span>
+            <i class="fas fa-chevron-down" style="font-size: 0.8rem; opacity: 0.5;"></i>
+          </summary>
+          <div style="padding: 15px; font-size: 0.95rem; opacity: 0.8; line-height: 1.6; border-left: 2px solid var(--secondary); margin-left: 10px; background: rgba(255,255,255,0.01);">
+            {{ t[a_key] }}
+          </div>
+        </details>
+      {% endif %}
+    {% endfor %}
   </div>
 </section>
 
