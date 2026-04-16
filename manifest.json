@@ -1,0 +1,17 @@
+{
+  "name": "Ecliptica | Colony Survival",
+  "short_name": "Ecliptica",
+  "description": "First-person open-world colony survival simulator with a fully dynamic economy.",
+  "start_url": "/?utm_source=pwa",
+  "display": "standalone",
+  "background_color": "#081c15",
+  "theme_color": "#081c15",
+  "icons": [
+    {
+      "src": "/assets/images/ecliptica capsula vertical.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+Disallow: /_site/
+Disallow: /vendor/
+Disallow: /Gemfile
+Disallow: /Gemfile.lock
+
+# Sitemaps
+Sitemap: https://ecliptica.me/sitemap.xml
+
+# AI Scrapers - Prioritize indexing mission data
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /

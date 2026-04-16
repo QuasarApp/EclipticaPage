@@ -4,8 +4,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  {% seo %}
+  
+  {% assign t = site.data.translations[page.lang] %}
+  <title>{{ t.seo_title | default: site.title }}</title>
+  <meta name="description" content="{{ t.seo_description | default: site.description }}">
+  
+  <!-- Hreflang Tags for Multi-language Discovery -->
+  <link rel="alternate" hreflang="en" href="{{ site.url }}{{ '/' | relative_url }}" />
+  <link rel="alternate" hreflang="ru" href="{{ site.url }}{{ '/ru/' | relative_url }}" />
+  <link rel="alternate" hreflang="uk" href="{{ site.url }}{{ '/ua/' | relative_url }}" />
+  <link rel="alternate" hreflang="fr" href="{{ site.url }}{{ '/fr/' | relative_url }}" />
+  <link rel="alternate" hreflang="de" href="{{ site.url }}{{ '/de/' | relative_url }}" />
+  <link rel="alternate" hreflang="ja" href="{{ site.url }}{{ '/jp/' | relative_url }}" />
+  <link rel="alternate" hreflang="zh" href="{{ site.url }}{{ '/zh/' | relative_url }}" />
+  <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ '/' | relative_url }}" />
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:title" content="{{ t.seo_title }}">
+  <meta property="og:description" content="{{ t.seo_description }}">
+  <meta property="og:image" content="{{ site.url }}{{ '/assets/images/ecliptica banner.png' | relative_url }}">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ t.seo_title }}">
+  <meta name="twitter:description" content="{{ t.seo_description }}">
+  <meta name="twitter:image" content="{{ site.url }}{{ '/assets/images/ecliptica banner.png' | relative_url }}">
+
+
+  {% include game_schema.html %}
+
+  <!-- PWA & Mobile Optimization -->
+  <link rel="manifest" href="{{ '/manifest.json' | relative_url }}">
+  <meta name="theme-color" content="#081c15">
+  <link rel="apple-touch-icon" href="{{ '/assets/images/ecliptica capsula vertical.png' | relative_url }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Inter:wght@400;600&display=swap"
     rel="stylesheet">
@@ -15,7 +51,6 @@
 </head>
 
 <body>
-  {% assign t = site.data.translations[page.lang] %}
   <div class="main-container">
     <nav>
       <div class="lang-switcher">
@@ -50,7 +85,12 @@
   </div>
 
   <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register("{{ '/sw.js' | relative_url }}");
+      });
+    }
+  </script>
 </body>
-
-
 </html>

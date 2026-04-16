@@ -64,3 +64,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 });
+
+// --- Lore Easter Egg for curious explorers ---
+console.log(
+  '%c [ SYSTEM DEPLOYMENT STATUS: STABLE ] \n %c Primary Mission: Establish self-sustaining colony on hostile surface. \n %c Operational Efficiency: 98.7% \n %c Protocol: %c SEARCHING FOR LOGICAL MINDS... \n %c JOIN THE MISSION: %c https://discord.gg/FRpw2565Sy ',
+  'color: #ffb703; font-weight: bold; background-color: #081c15; padding: 5px; font-family: monospace;',
+  'color: #2d6a4f; font-family: monospace;',
+  'color: #2d6a4f; font-family: monospace;',
+  'color: #2d6a4f; font-family: monospace;',
+  'color: #fb8500; font-weight: bold; background-color: #081c15; padding: 2px; font-family: monospace;',
+  'color: #2d6a4f; font-family: monospace;',
+  'color: #ffb703; font-weight: bold; text-decoration: underline; font-family: monospace;'
+);
+

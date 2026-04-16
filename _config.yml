@@ -1,11 +1,14 @@
-title: Ecliptica
+title: "Ecliptica | Colony Survival Simulator"
 email: contact@quasarapp.com
-description: >-
-  Ecliptica is a first-person open-world colony survival simulator with a fully dynamic economy.
+description: "Ecliptica is a first-person open-world colony survival simulator with a fully dynamic economy. Explore, extract, and dominate a hostile environment."
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://ecliptica.me" # the base hostname & protocol for your site
-twitter_username: quasarapp
-github_username:  quasarapp
+social:
+  name: Ecliptica
+  links:
+    - https://twitter.com/quasarapp
+    - https://github.com/quasarapp
+  image: /assets/images/ecliptica capsula vertical.png # Fallback OG image
 
 # Build settings
 theme: minima # We'll override most of it, but let's keep a base
@@ -16,3 +19,13 @@ plugins:
 
 sass:
   style: compressed
+
+include:
+  - ".well-known"
+  - "_data"
+  - "manifest.json"
+  - "sw.js"
+  - "robots.txt"
+  - "ai.txt"
+  - "indexnow_key.txt"
+
