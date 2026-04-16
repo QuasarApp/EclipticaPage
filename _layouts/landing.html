@@ -1,0 +1,77 @@
+---
+layout: default
+---
+
+{% assign t = site.data.translations[page.lang] %}
+
+<header style="text-align: center; margin-bottom: 60px;">
+  <img src="{{ '/assets/images/ecliptica main banner.png' | relative_url }}" alt="Ecliptica" style="max-width: 100%; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
+  <p class="highlight" style="margin-top: 15px; font-family: var(--font-header);">{{ t.header_boot }}</p>
+</header>
+
+<section class="section-card hero-layout">
+  <div class="about-content">
+    <h2 id="about"><i class="fas fa-seedling"></i> {{ t.mission_title }}</h2>
+    <p>{{ t.mission_desc_1 }}</p>
+    <p>{{ t.mission_desc_2 }}</p>
+    <p style="margin-top: 1rem;">{{ t.mission_desc_3 }}</p>
+
+    
+    <div style="margin-top: 30px; display: flex; gap: 15px; flex-wrap: wrap;">
+        <a href="https://store.steampowered.com/app/3723390/Ecliptica/" class="btn btn-primary">{{ t.btn_wishlist }}</a>
+        <a href="#features" class="btn btn-outline">{{ t.btn_specs }}</a>
+    </div>
+  </div>
+  <div class="sidebar-info">
+    <img src="{{ '/assets/images/ecliptica capsula vertical.png' | relative_url }}" alt="Forgotten Pod" style="width: 100%; border-radius: 20px;">
+  </div>
+</section>
+
+<section id="features" class="section-card">
+  <h2><i class="fas fa-dna"></i> {{ t.features_title }}</h2>
+  <div class="features-grid">
+    <div class="feature-item">
+      <h3>{{ t.feature_1_title }}</h3>
+      <p>{{ t.feature_1_desc }}</p>
+    </div>
+    <div class="feature-item">
+      <h3>{{ t.feature_2_title }}</h3>
+      <p>{{ t.feature_2_desc }}</p>
+    </div>
+    <div class="feature-item">
+      <h3>{{ t.feature_3_title }}</h3>
+      <p>{{ t.feature_3_desc }}</p>
+    </div>
+    <div class="feature-item">
+      <h3>{{ t.feature_4_title }}</h3>
+      <p>{{ t.feature_4_desc }}</p>
+    </div>
+  </div>
+</section>
+
+<section id="visuals" class="section-card">
+  <h2><i class="fas fa-eye"></i> {{ t.visuals_title }}</h2>
+  <div class="screenshot-gallery">
+    <img src="{{ '/assets/sceenshots/Screenshot From 2026-03-01 07-55-44.png' | relative_url }}" alt="Atmosphere 01">
+    <img src="{{ '/assets/sceenshots/Screenshot From 2026-04-10 17-44-15.png' | relative_url }}" alt="Atmosphere 02">
+    <img src="{{ '/assets/sceenshots/Screenshot From 2026-04-11 18-33-19.png' | relative_url }}" alt="Atmosphere 03">
+    <img src="{{ '/assets/sceenshots/Screenshot From 2026-04-14 19-07-20.png' | relative_url }}" alt="Atmosphere 04">
+    <img src="{{ '/assets/sceenshots/Screenshot From 2026-04-14 19-08-26.png' | relative_url }}" alt="Atmosphere 05">
+  </div>
+</section>
+
+<section class="section-card" id="social" style="text-align: center;">
+  <h2><i class="fas fa-satellite-dish"></i> {{ t.comms_title }}</h2>
+  <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
+    <a href="https://discord.gg/FRpw2565Sy" class="btn btn-outline"><i class="fab fa-discord"></i> DISCORD</a>
+    <a href="https://www.reddit.com/r/Ecliptica/" class="btn btn-outline"><i class="fab fa-reddit"></i> REDDIT</a>
+    <a href="https://t.me/+vyrQidUgV8U5NjI6" class="btn btn-outline"><i class="fab fa-telegram"></i> TELEGRAM</a>
+    <a href="https://www.youtube.com/@quasarappcore" class="btn btn-outline"><i class="fab fa-youtube"></i> YOUTUBE</a>
+  </div>
+</section>
+
+<section class="section-card" style="text-align: center; background: linear-gradient(135deg, rgba(45,106,79,0.3), rgba(255,183,3,0.2));">
+  <h2 style="justify-content: center;">{{ t.footer }}</h2>
+  <p style="margin-bottom: 30px;">{{ t.footer_desc }}</p>
+  <a href="https://store.steampowered.com/app/3723390/Ecliptica/" class="btn btn-primary" style="font-size: 1.2rem; padding: 16px 48px;">{{ t.btn_wishlist }}</a>
+</section>

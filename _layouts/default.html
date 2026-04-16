@@ -6,27 +6,51 @@
   {% seo %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="{{ '/assets/images/ecliptica icon.png' | relative_url }}">
+  <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+  <link rel="icon" type="image/png" href="{{ '/assets/images/ecliptica icon.png' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
-  <div class="terminal-container">
+  <div class="main-container">
     <nav>
-      <a href="#about">[ ABOUT ]</a>
-      <a href="#features">[ FEATURES ]</a>
-      <a href="#community">[ COMMUNITY ]</a>
-      <a href="#requirements">[ SYSTEM_REQ ]</a>
+      <div class="lang-switcher" style="position: relative; display: inline-block;">
+        <button class="btn btn-outline" style="padding: 6px 16px; border-radius: 12px; font-size: 0.8rem;">
+          <i class="fas fa-language"></i> {{ page.lang | upcase }}
+        </button>
+        <div class="lang-menu section-card" style="position: absolute; right: 0; top: 100%; width: 150px; padding: 10px; display: none; z-index: 1001; margin-top: 5px;">
+          <a href="{{ '/' | relative_url }}" style="display: block; padding: 5px; color: var(--text-main); text-decoration: none;">EN</a>
+          <a href="{{ '/ru/' | relative_url }}" style="display: block; padding: 5px; color: var(--text-main); text-decoration: none;">RU</a>
+          <a href="{{ '/ua/' | relative_url }}" style="display: block; padding: 5px; color: var(--text-main); text-decoration: none;">UA</a>
+          <a href="{{ '/fr/' | relative_url }}" style="display: block; padding: 5px; color: var(--text-main); text-decoration: none;">FR</a>
+          <a href="{{ '/de/' | relative_url }}" style="display: block; padding: 5px; color: var(--text-main); text-decoration: none;">DE</a>
+          <a href="{{ '/jp/' | relative_url }}" style="display: block; padding: 5px; color: var(--text-main); text-decoration: none;">JP</a>
+          <a href="{{ '/zh/' | relative_url }}" style="display: block; padding: 5px; color: var(--text-main); text-decoration: none;">ZH</a>
+        </div>
+      </div>
+      <a href="#about">About</a>
+
+      <a href="#features">Features</a>
+      <a href="#visuals">Visuals</a>
+      <a href="https://store.steampowered.com/app/3723390/Ecliptica/" class="btn btn-outline" style="padding: 6px 16px; border-radius: 12px;">Wishlist</a>
     </nav>
     
     {{ content }}
 
     <footer>
-      <p>TERMINAL v1.0.4 - STATUS: CONNECTION STABLE</p>
       <p>&copy; {{ site.time | date: '%Y' }} QuasarApp Corp. All rights reserved.</p>
     </footer>
   </div>
+
+  <script>
+    const switcher = document.querySelector('.lang-switcher button');
+    const menu = document.querySelector('.lang-menu');
+    switcher.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    });
+    document.addEventListener('click', () => menu.style.display = 'none');
+  </script>
 </body>
+
 </html>
