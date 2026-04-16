@@ -1,1 +1,1 @@
-# Ecliptica Game
+# Ecliptica Game Page
