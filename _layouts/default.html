@@ -12,28 +12,31 @@
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
+{% assign t = site.data.translations[page.lang] %}
   <div class="main-container">
     <nav>
-      <div class="lang-switcher" style="position: relative; display: inline-block;">
+      <div class="lang-switcher">
         <button class="btn btn-outline" style="padding: 6px 16px; border-radius: 12px; font-size: 0.8rem;">
           <i class="fas fa-language"></i> {{ page.lang | upcase }}
         </button>
-        <div class="lang-menu section-card" style="position: absolute; right: 0; top: 100%; width: 150px; padding: 10px; display: none; z-index: 1001; margin-top: 5px;">
-          <a href="{{ '/' | relative_url }}" style="display: block; padding: 5px; color: var(--text-main); text-decoration: none;">EN</a>
-          <a href="{{ '/ru/' | relative_url }}" style="display: block; padding: 5px; color: var(--text-main); text-decoration: none;">RU</a>
-          <a href="{{ '/ua/' | relative_url }}" style="display: block; padding: 5px; color: var(--text-main); text-decoration: none;">UA</a>
-          <a href="{{ '/fr/' | relative_url }}" style="display: block; padding: 5px; color: var(--text-main); text-decoration: none;">FR</a>
-          <a href="{{ '/de/' | relative_url }}" style="display: block; padding: 5px; color: var(--text-main); text-decoration: none;">DE</a>
-          <a href="{{ '/jp/' | relative_url }}" style="display: block; padding: 5px; color: var(--text-main); text-decoration: none;">JP</a>
-          <a href="{{ '/zh/' | relative_url }}" style="display: block; padding: 5px; color: var(--text-main); text-decoration: none;">ZH</a>
+        <div class="lang-menu section-card">
+          <a href="{{ '/' | relative_url }}">EN</a>
+          <a href="{{ '/ru/' | relative_url }}">RU</a>
+          <a href="{{ '/ua/' | relative_url }}">UA</a>
+          <a href="{{ '/fr/' | relative_url }}">FR</a>
+          <a href="{{ '/de/' | relative_url }}">DE</a>
+          <a href="{{ '/jp/' | relative_url }}">JP</a>
+          <a href="{{ '/zh/' | relative_url }}">ZH</a>
         </div>
       </div>
-      <a href="#about">About</a>
+      <a href="#about">{{ t.nav_about }}</a>
 
-      <a href="#features">Features</a>
-      <a href="#visuals">Visuals</a>
-      <a href="https://store.steampowered.com/app/3723390/Ecliptica/" class="btn btn-outline btn-nav-wishlist" style="padding: 8px 24px; border-radius: 12px;">Wishlist</a>
+      <a href="#features">{{ t.nav_features }}</a>
+      <a href="#visuals">{{ t.nav_visuals }}</a>
+      <a href="https://store.steampowered.com/app/3723390/Ecliptica/" class="btn btn-nav-wishlist" style="border-radius: 12px;">{{ t.nav_wishlist_btn }}</a>
     </nav>
+
+
     
     {{ content }}
 

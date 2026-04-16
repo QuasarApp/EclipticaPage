@@ -1,6 +1,11 @@
 en:
   header_boot: "[ SYSTEM REBOOT IN PROGRESS... TARGET REACHED ]"
+  nav_about: "About"
+  nav_features: "Features"
+  nav_visuals: "Visuals"
+  nav_wishlist_btn: "Wishlist"
   mission_title: "Atmospheric Entry"
+
   mission_desc_1: "Long-term transit completed. Estimated duration: 10,000 cycles. Memory archives are inaccessible. Analyzing current environment... Surface conditions: Hostile. Biological unit status: Functional. Adaptation protocol: Initiated."
   mission_desc_2: "Orbital decay detected. Emergency landing is unavoidable. Deployment of survival pods is underway. Primary directive: Establish a self-sustaining infrastructure on the local surface."
   mission_desc_3: "Resources are the only constant. Optimize extraction, master local logistics, and dominate the environment. Emotional responses have been phased out for maximum efficiency. Survival is a mathematical certainty if protocols are followed."
@@ -24,7 +29,12 @@ en:
 
 ru:
   header_boot: "[ ПЕРЕЗАГРУЗКА СИСТЕМ... ЦЕЛЬ ДОСТИГНУТА ]"
+  nav_about: "Об игре"
+  nav_features: "Особенности"
+  nav_visuals: "Визуал"
+  nav_wishlist_btn: "В список"
   mission_title: "Вход в атмосферу"
+
   mission_desc_1: "Длительный транзит завершен. Оценочная длительность: 10 000 циклов. Архивы памяти недоступны. Анализ текущей среды... Условия на поверхности: Враждебные. Статус био-юнитов: Функционален. Протокол адаптации: Инициирован."
   mission_desc_2: "Обнаружен распад орбиты. Аварийная высадка неизбежна. Идет развертывание спасательных капсул. Основная директива: Создание самообеспечивающейся инфраструктуры на поверхности."
   mission_desc_3: "Ресурсы — единственная константа. Оптимизируйте добычу, освойте логистику и доминируйте в окружающей среде. Эмоциональные реакции были удалены для максимальной эффективности. Выживание — это математическая неизбежность при соблюдении протоколов."
@@ -48,7 +58,12 @@ ru:
 
 ua:
   header_boot: "[ ПЕРЕЗАВАНТАЖЕННЯ СИСТЕМ... ЦІЛЬ ДОСЯГНУТА ]"
+  nav_about: "Про гру"
+  nav_features: "Особливості"
+  nav_visuals: "Візуал"
+  nav_wishlist_btn: "У список"
   mission_title: "Вхід в атмосферу"
+
   mission_desc_1: "Тривалий транзит завершено. Оціночна тривалість: 10 000 циклів. Архіви пам'яті недоступні. Аналіз середовища... Умови на поверхні: Ворожі. Статус біо-юнітів: Функціональний. Протокол адаптації: Ініційовано."
   mission_desc_2: "Виявлено розпад орбіти. Аварійна висадка неминуча. Йде розгортання рятувальних капсул. Основна директива: Створення інфраструктури самозабезпечення на поверхні."
   mission_desc_3: "Ресурси — єдина константа. Оптимізуйте видобуток, опануйте логістику та домінуйте в середовищі. Емоційні реакції були видалені для максимальної ефективності. Виживання — це математична неминучість при дотриманні протоколів."
@@ -72,7 +87,12 @@ ua:
 
 fr:
   header_boot: "[ REDÉMARRAGE DU SYSTÈME... DESTINATION ATTEINTE ]"
+  nav_about: "À propos"
+  nav_features: "Caractéristiques"
+  nav_visuals: "Visuels"
+  nav_wishlist_btn: "Souhaiter"
   mission_title: "Entrée Atmosphérique"
+
   mission_desc_1: "Transit longue durée terminé. Durée estimée : 10 000 cycles. Archives mémorielles inaccessibles. Analyse de l'environnement... Conditions de surface : Hostiles. Statut de l'unité biologique : Fonctionnel. Protocole d'adaptation : Initié."
   mission_desc_2: "Décomposition orbitale détectée. Atterrissage d'urgence inévitable. Déploiement des capsules de survie en cours. Directive primaire : Établir une infrastructure autonome sur la surface locale."
   mission_desc_3: "Les ressources sont la seule constante. Optimisez l'extraction, maîtrisez la logistique et dominez l'environnement. Les réponses émotionnelles ont été supprimées pour une efficacité maximale. La survie est une certitude mathématique si les protocoles sont suivis."
@@ -96,7 +116,12 @@ fr:
 
 de:
   header_boot: "[ SYSTEMNEUSTART... ZIEL ERREICHT ]"
+  nav_about: "Über das Spiel"
+  nav_features: "Features"
+  nav_visuals: "Visuals"
+  nav_wishlist_btn: "Wunschliste"
   mission_title: "Atmosphärischer Eintritt"
+
   mission_desc_1: "Langzeittransit abgeschlossen. Geschätzte Dauer: 10.000 Zyklen. Speicherarchive unzugänglich. Umweltanalyse... Oberflächenbedingungen: Hostil. Status biologische Einheit: Funktional. Anpassungsprotokoll: Initiiert."
   mission_desc_2: "Orbitaler Zerfall erkannt. Notlandung unvermeidlich. Einsatz der Überlebenskapseln läuft. Primärdirektive: Aufbau einer autarken Infrastruktur auf der Oberfläche."
   mission_desc_3: "Ressourcen sind die einzige Konstante. Optimieren Sie die Extraktion, beherrschen Sie die Logistik und dominieren Sie die Umwelt. Emotionale Reaktionen wurden für maximale Effizienz entfernt. Überleben ist eine mathematische Gewissheit, wenn die Protokolle befolgt werden."
@@ -120,7 +145,12 @@ de:
 
 jp:
   header_boot: "[ システム再起動中... 目的地に到達 ]"
+  nav_about: "概要"
+  nav_features: "特徴"
+  nav_visuals: "ビジュアル"
+  nav_wishlist_btn: "ウィッシュリスト"
   mission_title: "大気圏突入"
+
   mission_desc_1: "長期移動完了。推定期間：10,000サイクル。メモリアーカイブにアクセス不可。環境分析中... 表面条件：敵対的。生体ユニットステータス：機能的。適応プロトコル：開始。"
   mission_desc_2: "軌道衰退を検知。緊急着陸は不可避。生存ポッドを展開中。主要指令：現地の表面に自立したインフラを構築せよ。"
   mission_desc_3: "資源こそが唯一の定数だ。採掘を最適化し、物流を支配し、環境を制圧せよ。効率を最大化するため、感情的反応は削除済みだ。プロトコルに従えば、生存は数学的な確実性となる。"
@@ -144,7 +174,12 @@ jp:
 
 zh:
   header_boot: "[ 系统重启中... 已到达目的地 ]"
+  nav_about: "关于"
+  nav_features: "特色"
+  nav_visuals: "视觉"
+  nav_wishlist_btn: "心愿单"
   mission_title: "进入大气层"
+
   mission_desc_1: "长期航行结束。预计时长：10,000周期。记忆档案无法访问。环境分析中... 表面条件：敌对。生物单元状态：功能正常。适应协议：已启动。"
   mission_desc_2: "检测到轨道衰变。紧急着陆不可避免。正在部署生存舱。主要指令：在当地表面建立自给自足的基础设施。"
   mission_desc_3: "资源是唯一的常量。优化开采，掌握物流，统治环境。为实现效率最大化，已移除情感反应。只要遵循协议，生存就是数学上的必然。"
