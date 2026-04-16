@@ -1,17 +1,21 @@
+<!DOCTYPE html>
 <html lang="{{ page.lang | default: 'en' }}">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {% seo %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Inter:wght@400;600&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="icon" type="image/png" href="{{ '/assets/images/ecliptica icon.png' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
+
 <body>
-{% assign t = site.data.translations[page.lang] %}
+  {% assign t = site.data.translations[page.lang] %}
   <div class="main-container">
     <nav>
       <div class="lang-switcher">
@@ -32,11 +36,12 @@
 
       <a href="#features">{{ t.nav_features }}</a>
       <a href="#visuals">{{ t.nav_visuals }}</a>
-      <a href="https://store.steampowered.com/app/3723390/Ecliptica/" class="btn btn-nav-wishlist" style="border-radius: 12px;">{{ t.nav_wishlist_btn }}</a>
+      <a href="https://store.steampowered.com/app/3723390/Ecliptica/" class="btn btn-nav-wishlist"
+        style="border-radius: 12px;">{{ t.nav_wishlist_btn }}</a>
     </nav>
 
 
-    
+
     {{ content }}
 
     <footer>
