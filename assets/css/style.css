@@ -140,6 +140,8 @@ h2::after {
   cursor: pointer;
   border: none;
   gap: 10px;
+  max-width: 100%;
+  text-align: center;
 }
 
 .btn-primary {
