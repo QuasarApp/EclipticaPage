@@ -42,15 +42,8 @@
     </footer>
   </div>
 
-  <script>
-    const switcher = document.querySelector('.lang-switcher button');
-    const menu = document.querySelector('.lang-menu');
-    switcher.addEventListener('click', (e) => {
-      e.stopPropagation();
-      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-    });
-    document.addEventListener('click', () => menu.style.display = 'none');
-  </script>
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 </body>
+
 
 </html>

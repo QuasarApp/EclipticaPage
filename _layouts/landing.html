@@ -19,8 +19,10 @@ layout: default
     
     <div style="margin-top: 30px; display: flex; gap: 15px; flex-wrap: wrap;">
         <a href="https://store.steampowered.com/app/3723390/Ecliptica/" class="btn btn-primary">{{ t.btn_wishlist }}</a>
+        <a href="#trailer" class="btn btn-outline"><i class="fas fa-play"></i> {{ t.btn_trailer }}</a>
         <a href="#features" class="btn btn-outline">{{ t.btn_specs }}</a>
     </div>
+
   </div>
   <div class="sidebar-info">
     <img src="{{ '/assets/images/ecliptica capsula vertical.png' | relative_url }}" alt="Forgotten Pod" style="width: 100%; border-radius: 20px;">
@@ -49,7 +51,15 @@ layout: default
   </div>
 </section>
 
+<section id="trailer" class="section-card">
+  <h2><i class="fas fa-video"></i> {{ t.trailer_title }}</h2>
+  <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 20px; border: 1px solid var(--glass-border);">
+    <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/ASwHlP7EkU4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+</section>
+
 <section id="visuals" class="section-card">
+
   <h2><i class="fas fa-eye"></i> {{ t.visuals_title }}</h2>
   <div class="screenshot-gallery">
     <img src="{{ '/assets/sceenshots/Screenshot From 2026-03-01 07-55-44.png' | relative_url }}" alt="Atmosphere 01">
