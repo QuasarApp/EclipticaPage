@@ -64,17 +64,28 @@ body {
 h1, h2, h3 {
   font-family: var(--font-header);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 600px) {
+  h2 {
+    font-size: 1.4rem !important;
+    letter-spacing: 0;
+  }
+  h3 {
+    font-size: 1rem !important;
+  }
 }
 
 h2 {
   font-size: 1.8rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   color: var(--secondary);
   display: flex;
   align-items: center;
   gap: 15px;
 }
+
 
 h2::after {
   content: "";
