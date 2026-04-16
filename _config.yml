@@ -2,7 +2,7 @@ title: Ecliptica
 email: contact@quasarapp.com
 description: >-
   Ecliptica is a first-person open-world colony survival simulator with a fully dynamic economy.
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/EclipticaPage" # the subpath of your site, e.g. /blog
 url: "https://quasarapp.github.io" # the base hostname & protocol for your site
 twitter_username: quasarapp
 github_username:  quasarapp
