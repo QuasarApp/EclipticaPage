@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% seo %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+  <div class="bg-mesh"></div>
+
+  <nav>
+    <div class="container nav-content">
+      <a href="#" class="logo">ECLIPTICA</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#community">Community</a>
+        <a href="#requirements">Requirements</a>
+      </div>
+      <a href="https://store.steampowered.com/app/3723390/Ecliptica/" class="btn btn-primary" style="padding: 0.5rem 1.5rem;">WISHLIST NOW</a>
+    </div>
+  </nav>
+
+  {{ content }}
+
+  <footer>
+    <div class="container">
+      <p>&copy; {{ site.time | date: '%Y' }} QuasarApp. All rights reserved.</p>
+      <div style="margin-top: 1rem;">
+        <a href="https://store.steampowered.com/curator/45704880" style="color: var(--text-dim);">QuasarApp Group on Steam</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>
