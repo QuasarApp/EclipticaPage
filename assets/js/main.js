@@ -63,6 +63,38 @@ document.addEventListener('DOMContentLoaded', () => {
   }, observerOptions);
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // --- Lightbox Logic ---
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxClose = document.querySelector('.lightbox-close');
+
+  if (lightbox && lightboxImg) {
+    document.querySelectorAll('.screenshot-gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+      });
+    });
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = ''; // Restore scrolling
+    };
+
+    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+    
+    // Close on clicking outside the image
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  }
 });
 
 // --- Lore Easter Egg for curious explorers ---
