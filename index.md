@@ -4,7 +4,7 @@ title: Ecliptica - First-Person Colony Survival Simulator
 ---
 
 <header style="text-align: center; margin-bottom: 40px;">
-  <img src="/assets/images/ecliptica main banner.png" alt="Ecliptica" style="max-width: 100%; border: 2px solid var(--term-border);">
+  <img src="{{ '/assets/images/ecliptica main banner.png' | relative_url }}" alt="Ecliptica" style="max-width: 100%; border: 2px solid var(--term-border);">
   <p class="highlight" style="margin-top: 10px;">> BOOTING COLONY_OS... SUCCESS</p>
 </header>
 
@@ -16,7 +16,7 @@ title: Ecliptica - First-Person Colony Survival Simulator
     <p>Explore a procedurally generated open world, establish outposts, or join NPC-led factions. <span class="highlight">Every decision shapes the fate of the colony.</span></p>
   </div>
   <div class="sidebar">
-    <div class="sidebar-video-placeholder" style="background: url('/assets/images/ecliptica capsula vertical.png'); background-size: cover; background-position: center;">
+    <div class="sidebar-video-placeholder" style="background: url('{{ '/assets/images/ecliptica capsula vertical.png' | relative_url }}'); background-size: cover; background-position: center;">
        <!-- Container for Steam Capsule -->
     </div>
     <div style="margin-top: 15px; text-align: center;">
@@ -50,11 +50,11 @@ title: Ecliptica - First-Person Colony Survival Simulator
 <section id="screenshots" class="content-section">
   <h2>>> VISUAL_LOGS</h2>
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px;">
-    <img src="/assets/sceenshots/Screenshot From 2026-03-01 07-55-44.png" alt="Log 01" style="width: 100%; border: 1px solid var(--term-border);">
-    <img src="/assets/sceenshots/Screenshot From 2026-04-10 17-44-15.png" alt="Log 02" style="width: 100%; border: 1px solid var(--term-border);">
-    <img src="/assets/sceenshots/Screenshot From 2026-04-11 18-33-19.png" alt="Log 03" style="width: 100%; border: 1px solid var(--term-border);">
-    <img src="/assets/sceenshots/Screenshot From 2026-04-14 19-07-20.png" alt="Log 04" style="width: 100%; border: 1px solid var(--term-border);">
-    <img src="/assets/sceenshots/Screenshot From 2026-04-14 19-08-26.png" alt="Log 05" style="width: 100%; border: 1px solid var(--term-border);">
+    <img src="{{ '/assets/sceenshots/Screenshot From 2026-03-01 07-55-44.png' | relative_url }}" alt="Log 01" style="width: 100%; border: 1px solid var(--term-border);">
+    <img src="{{ '/assets/sceenshots/Screenshot From 2026-04-10 17-44-15.png' | relative_url }}" alt="Log 02" style="width: 100%; border: 1px solid var(--term-border);">
+    <img src="{{ '/assets/sceenshots/Screenshot From 2026-04-11 18-33-19.png' | relative_url }}" alt="Log 03" style="width: 100%; border: 1px solid var(--term-border);">
+    <img src="{{ '/assets/sceenshots/Screenshot From 2026-04-14 19-07-20.png' | relative_url }}" alt="Log 04" style="width: 100%; border: 1px solid var(--term-border);">
+    <img src="{{ '/assets/sceenshots/Screenshot From 2026-04-14 19-08-26.png' | relative_url }}" alt="Log 05" style="width: 100%; border: 1px solid var(--term-border);">
   </div>
 </section>
 
