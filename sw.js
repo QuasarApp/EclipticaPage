@@ -3,7 +3,7 @@ const ASSETS = [
   '/',
   '/assets/css/style.css',
   '/assets/js/main.js',
-  '/assets/images/ecliptica main banner.png'
+  '/assets/images/ecliptica_main_banner.png'
 ];
 
 self.addEventListener('install', (event) => {

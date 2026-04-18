@@ -8,7 +8,7 @@
   "theme_color": "#081c15",
   "icons": [
     {
-      "src": "/assets/images/ecliptica capsula vertical.png",
+      "src": "/assets/images/ecliptica_capsula_vertical.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
