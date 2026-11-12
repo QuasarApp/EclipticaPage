@@ -33,6 +33,48 @@ body {
   word-wrap: break-word;
 }
 
+/* Background video: looping trailer behind all content.
+   The body background-image above stays as a fallback for
+   browsers without <video> support or when the file fails to load. */
+.video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  background-color: var(--bg-dark);
+}
+
+.video-bg__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Dark overlay to keep text readable over the moving video */
+.video-bg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(8, 28, 21, 0.6), rgba(8, 28, 21, 0.75));
+  pointer-events: none;
+}
+
+/* Respect user motion preferences: fall back to the static image */
+@media (prefers-reduced-motion: reduce) {
+  .video-bg {
+    display: none;
+  }
+}
+
 
 /* Base Layout */
 .main-container {
