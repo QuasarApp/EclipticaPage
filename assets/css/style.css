@@ -18,13 +18,12 @@
 }
 
 body {
+  /* The page background is the auto-playing looping trailer video
+     (.video-bg below). This dark color is only the fallback shown
+     when the browser has no <video> support or the file fails to
+     load — the static JPG is no longer part of the visible
+     background (kept as the video poster / reduced-motion fallback). */
   background-color: var(--bg-dark);
-  background-image: 
-    linear-gradient(rgba(8, 28, 21, 0.8), rgba(8, 28, 21, 0.8)),
-    url('../images/ecliptica_page_background.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
   color: var(--text-main);
   font-family: var(--font-body);
   line-height: 1.6;
@@ -33,9 +32,9 @@ body {
   word-wrap: break-word;
 }
 
-/* Background video: looping trailer behind all content.
-   The body background-image above stays as a fallback for
-   browsers without <video> support or when the file fails to load. */
+/* Page background: the looping trailer fills 100% of the viewport
+   (excess edges cropped), sits behind all the content and is
+   blurred — the same treatment the static background image had. */
 .video-bg {
   position: fixed;
   top: 0;
@@ -53,10 +52,13 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover;      /* fill 100% of the viewport, crop the excess */
+  filter: blur(20px);     /* blur, like the existing background */
+  transform: scale(1.15); /* keep the soft blurred edges out of view */
 }
 
-/* Dark overlay to keep text readable over the moving video */
+/* Dark overlay (the same one the static background had) to keep the
+   text readable over the moving video */
 .video-bg::after {
   content: "";
   position: absolute;
@@ -64,14 +66,20 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(8, 28, 21, 0.6), rgba(8, 28, 21, 0.75));
+  background: linear-gradient(rgba(8, 28, 21, 0.8), rgba(8, 28, 21, 0.8));
   pointer-events: none;
 }
 
-/* Respect user motion preferences: fall back to the static image */
+/* Respect user motion preferences: hide the video and keep the
+   static background image instead */
 @media (prefers-reduced-motion: reduce) {
-  .video-bg {
+  .video-bg__video {
     display: none;
+  }
+  .video-bg {
+    background-image: url('../images/ecliptica_page_background.jpg');
+    background-size: cover;
+    background-position: center;
   }
 }
 
