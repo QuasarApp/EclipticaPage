@@ -18,19 +18,69 @@
 }
 
 body {
+  /* The page background is the auto-playing looping trailer video
+     (.video-bg below). This dark color is only the fallback shown
+     when the browser has no <video> support or the file fails to
+     load — the static JPG is no longer part of the visible
+     background (kept as the video poster / reduced-motion fallback). */
   background-color: var(--bg-dark);
-  background-image: 
-    linear-gradient(rgba(8, 28, 21, 0.8), rgba(8, 28, 21, 0.8)),
-    url('../images/ecliptica_page_background.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
   color: var(--text-main);
   font-family: var(--font-body);
   line-height: 1.6;
   overflow-x: hidden;
   overflow-wrap: break-word;
   word-wrap: break-word;
+}
+
+/* Page background: the looping trailer fills 100% of the viewport
+   (excess edges cropped), sits behind all the content and has a
+   very subtle blur — light enough that the gameplay stays visible. */
+.video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  background-color: var(--bg-dark);
+}
+
+.video-bg__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* fill 100% of the viewport, crop the excess */
+  filter: blur(3px);      /* very subtle blur — gameplay stays visible */
+  transform: scale(1.04); /* tiny crop to hide the soft blurred edges */
+}
+
+/* Dark overlay (the same one the static background had) to keep the
+   text readable over the moving video */
+.video-bg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(8, 28, 21, 0.8), rgba(8, 28, 21, 0.8));
+  pointer-events: none;
+}
+
+/* Respect user motion preferences: hide the video and keep the
+   static background image instead */
+@media (prefers-reduced-motion: reduce) {
+  .video-bg__video {
+    display: none;
+  }
+  .video-bg {
+    background-image: url('../images/ecliptica_page_background.jpg');
+    background-size: cover;
+    background-position: center;
+  }
 }
 
 

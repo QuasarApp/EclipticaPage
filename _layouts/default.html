@@ -60,6 +60,17 @@
 </head>
 
 <body>
+  <!-- Page background: the game trailer plays automatically and
+       loops, filling 100% of the viewport (excess edges cropped)
+       and blurred — it replaces the static background image, which
+       is only kept as the loading poster / reduced-motion fallback -->
+  <div class="video-bg" aria-hidden="true">
+    <video id="bg-trailer" class="video-bg__video" autoplay loop muted playsinline preload="auto"
+      poster="{{ '/assets/images/ecliptica_page_background.jpg' | relative_url }}">
+      <source src="{{ '/assets/videos/ecliptica_trailer.mp4' | relative_url }}" type="video/mp4">
+    </video>
+  </div>
+
   <div class="main-container">
     <nav>
       <div class="lang-switcher">

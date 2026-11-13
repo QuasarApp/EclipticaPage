@@ -1,4 +1,33 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // --- Background Video (looped trailer) ---
+  // Autoplay requires muted; retry play() once on the first user
+  // interaction in case the browser blocked the initial start.
+  const bgVideo = document.getElementById('bg-trailer');
+  if (bgVideo) {
+    const startBgVideo = () => {
+      const promise = bgVideo.play();
+      if (promise !== undefined && typeof promise.catch === 'function') {
+        promise.catch(() => {
+          // Autoplay still blocked - retry on first interaction.
+          const retry = () => {
+            bgVideo.play().catch(() => {});
+            document.removeEventListener('pointerdown', retry);
+            document.removeEventListener('keydown', retry);
+            document.removeEventListener('scroll', retry);
+          };
+          document.addEventListener('pointerdown', retry);
+          document.addEventListener('keydown', retry);
+          document.addEventListener('scroll', retry);
+        });
+      }
+    };
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      startBgVideo();
+    } else {
+      window.addEventListener('load', startBgVideo);
+    }
+  }
+
   // --- Language Switcher Logic ---
   const switcher = document.querySelector('.lang-switcher button');
   const menu = document.querySelector('.lang-menu');
