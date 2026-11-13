@@ -94,25 +94,30 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
   // --- Ordered spawn animations for all visual blocks ---
-  // Every .spawnable block plays a one-shot spawn (fade + slide, see
-  // style.css) when it comes FULLY into the field of view:
-  //   * normal blocks: IntersectionObserver ratio >= 1 (fully visible);
-  //   * blocks taller than the viewport can never be 100% visible, so
-  //     they start as soon as they cover ~95% of the viewport.
-  // Blocks are started strictly in document order: blocks that become
-  // ready at the same time (e.g. on page load) are staggered by
-  // SPAWN_STAGGER_MS so the order stays visible.
+  // Every .spawnable block plays a one-shot spawn (fade + slide in
+  // from the left or the right side, see style.css) as soon as at
+  // least 10% of it comes into the field of view:
+  //   * the entry side alternates per block (even -> left, odd ->
+  //     right, in document order);
+  //   * blocks that are physically taller than the viewport (small
+  //     phones) can never be fully visible, so the 10% rule guarantees
+  //     they still spawn;
+  //   * blocks are started strictly in document order: blocks that
+  //     become ready at the same time (e.g. on page load) are
+  //     staggered by SPAWN_STAGGER_MS so the order stays visible.
   if (document.documentElement.classList.contains('spawn-js')) {
     const SPAWN_STAGGER_MS = 110;
     const SPAWN_DONE_MS = 700; // CSS spawn-in duration (0.65s) + margin
+    const SPAWN_MIN_VISIBLE = 0.1; // ready when >= 10% of the block is visible
 
     // querySelectorAll returns document order - that is the spawn order.
-    const items = Array.from(document.querySelectorAll('.spawnable')).map((el) => ({
-      el,
-      threshold: 1,
-      ready: false,
-      started: false,
-    }));
+    const items = Array.from(document.querySelectorAll('.spawnable')).map(
+      (el, index) => {
+        // Alternate the entry side per block.
+        el.classList.add(index % 2 === 0 ? 'spawn-from-left' : 'spawn-from-right');
+        return { el, ready: false, started: false };
+      }
+    );
 
     let busyUntil = 0;
     let pumpTimer = null;
@@ -147,33 +152,23 @@ document.addEventListener('DOMContentLoaded', () => {
       if (pumpTimer === null) pumpTimer = setTimeout(pump, 0);
     };
 
-    // "Fully in view" threshold per block.
-    const vh = window.innerHeight || document.documentElement.clientHeight;
-    items.forEach((item) => {
-      const h = item.el.getBoundingClientRect().height;
-      if (h > 0 && h > vh) {
-        // Taller than the viewport: trigger when it covers ~95% of it.
-        item.threshold = Math.min(1, (0.95 * vh) / h);
-      }
-    });
-
     const spawnObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           const item = items.find((i) => i.el === entry.target);
-          // 0.005 tolerance: floating point may report 0.9999999
-          // instead of exactly 1 for a fully visible block.
+          // 0.005 tolerance: floating point may report 0.0999999
+          // instead of exactly 0.1.
           if (item && !item.ready && entry.isIntersecting &&
-              entry.intersectionRatio >= item.threshold - 0.005) {
+              entry.intersectionRatio >= SPAWN_MIN_VISIBLE - 0.005) {
             item.ready = true;
             spawnObserver.unobserve(entry.target);
             schedulePump();
           }
         });
       },
-      // Fine-grained steps so the callback fires when the ratio
-      // reaches any of the per-block thresholds.
-      { threshold: Array.from({ length: 101 }, (_, i) => i / 100) }
+      // One threshold is enough: a block becomes ready the moment
+      // at least 10% of it is visible (EndrII review 2026-11-13).
+      { threshold: SPAWN_MIN_VISIBLE }
     );
 
     items.forEach((item) => spawnObserver.observe(item.el));

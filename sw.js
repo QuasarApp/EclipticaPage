@@ -1,6 +1,6 @@
 // Bump this name whenever the precached assets below change,
 // so existing visitors drop the stale cache and re-download them.
-const CACHE_NAME = 'ecliptica-v6';
+const CACHE_NAME = 'ecliptica-v7';
 const ASSETS = [
   '/',
   '/assets/css/style.css',
