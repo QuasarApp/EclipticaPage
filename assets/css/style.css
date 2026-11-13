@@ -409,3 +409,36 @@ footer {
     gap: 16px;
   }
 }
+
+/* --- Spawn animations for visual blocks ---
+   Every element with the .spawnable class starts hidden (only when the
+   "spawn-js" class was added by the early head script, so no-JS and
+   reduced-motion users always see the content) and plays a one-shot
+   fade + slide spawn when main.js adds the .spawned class. After the
+   animation finishes, .spawned-done replaces .spawned so the normal
+   hover transforms/transitions of the block work again. */
+.spawn-js .spawnable {
+  opacity: 0;
+}
+
+.spawn-js .spawnable.spawned {
+  animation: spawn-in 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+  will-change: opacity, transform;
+}
+
+.spawn-js .spawnable.spawned-done {
+  animation: none;
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes spawn-in {
+  from {
+    opacity: 0;
+    transform: translateY(26px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

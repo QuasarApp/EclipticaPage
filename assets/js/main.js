@@ -93,6 +93,92 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+  // --- Ordered spawn animations for all visual blocks ---
+  // Every .spawnable block plays a one-shot spawn (fade + slide, see
+  // style.css) when it comes FULLY into the field of view:
+  //   * normal blocks: IntersectionObserver ratio >= 1 (fully visible);
+  //   * blocks taller than the viewport can never be 100% visible, so
+  //     they start as soon as they cover ~95% of the viewport.
+  // Blocks are started strictly in document order: blocks that become
+  // ready at the same time (e.g. on page load) are staggered by
+  // SPAWN_STAGGER_MS so the order stays visible.
+  if (document.documentElement.classList.contains('spawn-js')) {
+    const SPAWN_STAGGER_MS = 110;
+    const SPAWN_DONE_MS = 700; // CSS spawn-in duration (0.65s) + margin
+
+    // querySelectorAll returns document order - that is the spawn order.
+    const items = Array.from(document.querySelectorAll('.spawnable')).map((el) => ({
+      el,
+      threshold: 1,
+      ready: false,
+      started: false,
+    }));
+
+    let busyUntil = 0;
+    let pumpTimer = null;
+
+    const startItem = (item) => {
+      item.started = true;
+      item.el.classList.add('spawned');
+      // Drop the animation class after the animation so the block's
+      // normal hover styles (transform/transition) apply again.
+      setTimeout(() => {
+        item.el.classList.remove('spawned');
+        item.el.classList.add('spawned-done');
+      }, SPAWN_DONE_MS);
+    };
+
+    const pump = () => {
+      pumpTimer = null;
+      const next = items.find((i) => i.ready && !i.started);
+      if (!next) return;
+      const now = performance.now();
+      if (now < busyUntil) {
+        // Keep the document order: wait for the stagger slot.
+        pumpTimer = setTimeout(pump, Math.ceil(busyUntil - now));
+        return;
+      }
+      startItem(next);
+      busyUntil = now + SPAWN_STAGGER_MS;
+      pumpTimer = setTimeout(pump, SPAWN_STAGGER_MS);
+    };
+
+    const schedulePump = () => {
+      if (pumpTimer === null) pumpTimer = setTimeout(pump, 0);
+    };
+
+    // "Fully in view" threshold per block.
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    items.forEach((item) => {
+      const h = item.el.getBoundingClientRect().height;
+      if (h > 0 && h > vh) {
+        // Taller than the viewport: trigger when it covers ~95% of it.
+        item.threshold = Math.min(1, (0.95 * vh) / h);
+      }
+    });
+
+    const spawnObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const item = items.find((i) => i.el === entry.target);
+          // 0.005 tolerance: floating point may report 0.9999999
+          // instead of exactly 1 for a fully visible block.
+          if (item && !item.ready && entry.isIntersecting &&
+              entry.intersectionRatio >= item.threshold - 0.005) {
+            item.ready = true;
+            spawnObserver.unobserve(entry.target);
+            schedulePump();
+          }
+        });
+      },
+      // Fine-grained steps so the callback fires when the ratio
+      // reaches any of the per-block thresholds.
+      { threshold: Array.from({ length: 101 }, (_, i) => i / 100) }
+    );
+
+    items.forEach((item) => spawnObserver.observe(item.el));
+  }
+
   // --- Lightbox Logic ---
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
