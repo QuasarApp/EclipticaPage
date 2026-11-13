@@ -33,8 +33,8 @@ body {
 }
 
 /* Page background: the looping trailer fills 100% of the viewport
-   (excess edges cropped), sits behind all the content and is
-   blurred — the same treatment the static background image had. */
+   (excess edges cropped), sits behind all the content and has a
+   very subtle blur — light enough that the gameplay stays visible. */
 .video-bg {
   position: fixed;
   top: 0;
@@ -53,8 +53,8 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;      /* fill 100% of the viewport, crop the excess */
-  filter: blur(20px);     /* blur, like the existing background */
-  transform: scale(1.15); /* keep the soft blurred edges out of view */
+  filter: blur(3px);      /* very subtle blur — gameplay stays visible */
+  transform: scale(1.04); /* tiny crop to hide the soft blurred edges */
 }
 
 /* Dark overlay (the same one the static background had) to keep the
