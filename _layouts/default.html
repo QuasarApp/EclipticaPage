@@ -4,6 +4,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Spawn animations: mark the document as "spawn-ready" as early as
+       possible (before first paint) so the .spawnable blocks can start
+       hidden and animate in. Skipped when the browser has no
+       IntersectionObserver or the user prefers reduced motion - in that
+       case the blocks simply stay visible, no animation. -->
+  <script>
+    (function () {
+      try {
+        if ('IntersectionObserver' in window &&
+            !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          document.documentElement.classList.add('spawn-js');
+        }
+      } catch (e) { /* no-op: blocks stay visible */ }
+    })();
+  </script>
   
   {% assign t = site.data.translations[page.lang] %}
   <title>{{ t.seo_title | default: site.title }}</title>
@@ -107,7 +123,7 @@
 
     {{ content }}
 
-    <footer>
+    <footer class="spawnable">
       <p>&copy; {{ site.time | date: '%Y' }} QuasarApp Corp. All rights reserved.</p>
     </footer>
   </div>

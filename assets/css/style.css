@@ -409,3 +409,67 @@ footer {
     gap: 16px;
   }
 }
+
+/* --- Spawn animations for visual blocks ---
+   Every element with the .spawnable class starts hidden (only when the
+   "spawn-js" class was added by the early head script, so no-JS and
+   reduced-motion users always see the content) and plays a one-shot
+   fade + slide spawn from the LEFT or the RIGHT side when main.js adds
+   the .spawned class (the entry side is set by main.js with
+   .spawn-from-left / .spawn-from-right, alternating per block). After
+   the animation finishes, .spawned-done replaces .spawned so the
+   normal hover transforms/transitions of the block work again. */
+.spawn-js .spawnable {
+  opacity: 0;
+}
+
+.spawn-js .spawnable.spawned {
+  opacity: 1;
+  animation: spawn-in 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+  will-change: opacity, transform;
+}
+
+.spawn-js .spawnable.spawned.spawn-from-left {
+  animation-name: spawn-in-left;
+}
+
+.spawn-js .spawnable.spawned.spawn-from-right {
+  animation-name: spawn-in-right;
+}
+
+.spawn-js .spawnable.spawned-done {
+  animation: none;
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes spawn-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes spawn-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-48px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes spawn-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(48px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
